@@ -1,11 +1,10 @@
-dinheiro=1000
+ dinheiro=1000
 x= True
    
 while x==True:
     if dinheiro==0:
         print("Que pena, você está sem crédito")
         break
-    
     print("Você tem: {}".format(dinheiro))
     pergunta=input("Você gostaria de continuar apostando? Se sim digite (s) se não digite (n): ")
      
@@ -22,41 +21,54 @@ while x==True:
         #PASS LINE BET
         if come_out=="pass line bet":
             aposta1= int(input("Quanto você deseja apostar? "))
-            import random
-            dado1=random.randint(1,6)
-            dado2=random.randint(1,6)
-            s1 = dado1 + dado2
-            
-            if s1 == 7 or s1== 11:
-                print ("Você venceu!!!")
-                dinheiro = dinheiro + aposta1
+            if aposta1 > dinheiro or aposta1 <= 0:
+                print("Valor inválido")
+                x=True
                 
-            elif s1 ==2 or s1==3 or s1==12:
-                    print ("Você Perdeu")
-                    dinheiro = dinheiro - aposta1
-                    
             else:
-                print ("Você entrou no modo Point")
                 import random
                 dado1=random.randint(1,6)
                 dado2=random.randint(1,6)
-                sp = dado1 + dado2
+                s1 = dado1 + dado2
                 
-                if sp==s1:
-                    print("Parabens você ganhou")
+                if s1 == 7 or s1== 11:
+                    print ("Você venceu!!!")
                     dinheiro = dinheiro + aposta1
-                    #return come_out
-                elif sp==7:
-                    print("Você perdeu")
-                    dinheiro = dinheiro - aposta1
-                    #return come_out
-                #else:
-                    #return 
-            
+                    
+                elif s1 ==2 or s1==3 or s1==12:
+                        print ("Você Perdeu")
+                        dinheiro = dinheiro - aposta1
+                   
+                else:
+                    y=True
+                    print ("Você entrou no modo Point")
+                    while y==True:
+                        import random
+                        dado1=random.randint(1,6)
+                        dado2=random.randint(1,6)
+                        sp = dado1 + dado2
+                        
+                        if sp==s1:
+                            print("Parabens você ganhou")
+                            dinheiro = dinheiro + aposta1
+                            y=False
+                            x==True
+                        elif sp==7:
+                            print("Você perdeu")
+                            dinheiro = dinheiro - aposta1
+                            y=False
+                            x==True
+                            
+                        else:
+                            y==True
         
         #FIELD
         elif come_out=="field":
             aposta2= int(input("Quanto você deseja apostar? "))
+            if aposta2 > dinheiro or aposta2 <= 0:
+                print("Valor inválido")
+                x=True
+            
             import random
             dado1=random.randint(1,6)
             dado2=random.randint(1,6)
@@ -68,7 +80,7 @@ while x==True:
             
             elif s2==3 or s2==4 or s2==9 or s2==10 or s2==11:
                 print("Você ganhou")
-                dinheiro = dinheiro
+                dinheiro = dinheiro + aposta2
                 
             elif s2==2:
                 print("Você ganhou o dobro!!")
@@ -83,6 +95,10 @@ while x==True:
         #ANY CRAPS
         elif come_out=="any craps":
             aposta3= int(input("Quanto você deseja apostar? "))
+            if aposta3 > dinheiro or aposta3 <= 0:
+                print("Valor inválido")
+                x=True
+                
             import random
             dado1=random.randint(1,6)
             dado2=random.randint(1,6)
@@ -100,6 +116,10 @@ while x==True:
         #TWELVE
         elif come_out=="twelve":
             aposta4= int(input("Quanto você deseja apostar? "))
+            if aposta4 > dinheiro or aposta4 <= 0:
+                print("Valor inválido")
+                x=True
+            
             import random
             dado1=random.randint(1,6)
             dado2=random.randint(1,6)
@@ -111,4 +131,4 @@ while x==True:
                 
             else:
                 print("Que pena, você perdeu")
-                dinheiro = dinheiro - aposta3
+                dinheiro = dinheiro - aposta4

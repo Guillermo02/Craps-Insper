@@ -27,16 +27,31 @@ while x==True:
             dado2=random.randint(1,6)
             s1 = dado1 + dado2
             
-            if s1 == "7" or s1== "11":
+            if s1 == 7 or s1== 11:
                 print ("Você venceu!!!")
                 dinheiro = dinheiro + aposta1
                 
-            elif s1 =="2" or s1=="3" or s1=="12":
+            elif s1 ==2 or s1==3 or s1==12:
                     print ("Você Perdeu")
                     dinheiro = dinheiro - aposta1
                     
             else:
                 print ("Você entrou no modo Point")
+                import random
+                dado1=random.randint(1,6)
+                dado2=random.randint(1,6)
+                sp = dado1 + dado2
+                
+                if sp==s1:
+                    print("Parabens você ganhou")
+                    dinheiro = dinheiro + aposta1
+                    #return come_out
+                elif sp==7:
+                    print("Você perdeu")
+                    dinheiro = dinheiro - aposta1
+                    #return come_out
+                #else:
+                    #return 
             
         
         #FIELD
@@ -47,19 +62,19 @@ while x==True:
             dado2=random.randint(1,6)
             s2 = int (dado1 + dado2)
            
-            if s2=="5" or s2=="6" or s2=="7" or s2=="8":
+            if s2==5 or s2==6 or s2==7 or s2==8:
                 print("Que pena, você perdeu")
                 dinheiro = dinheiro - aposta2
             
-            elif s2=="3" or s2=="4" or s2=="9" or s2=="10" or s2=="11":
+            elif s2==3 or s2==4 or s2==9 or s2==10 or s2==11:
                 print("Você ganhou")
                 dinheiro = dinheiro
                 
-            elif s2=="2":
+            elif s2==2:
                 print("Você ganhou o dobro!!")
                 dinheiro = dinheiro + 2*aposta2
                 
-            elif s2=="12":
+            elif s2==12:
                 print("Você ganhou o triplo!!!!")
                 dinheiro = dinheiro + 3*aposta2
         
@@ -73,7 +88,7 @@ while x==True:
             dado2=random.randint(1,6)
             s3 = dado1 + dado2
             
-            if s3=="2" or s3=="3" or s3=="12" :
+            if s3==2 or s3==3 or s3==12 :
                 print("Parabens!!! Vocé acaba de ganhar 7x o apostado")
                 dinheiro = dinheiro + 7*aposta3
                 
@@ -90,7 +105,7 @@ while x==True:
             dado2=random.randint(1,6)
             s4 = dado1 + dado2
             
-            if s4=="12":
+            if s4==12:
                 print("!!SORTE GRANDE!! 30X O APOSTADO!!")
                 dinheiro = dinheiro + 30*aposta4
                 
